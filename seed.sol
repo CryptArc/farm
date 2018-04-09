@@ -22,6 +22,8 @@ contract Seed {
     function _createSeed(string _name, string _rarity, uint _dna) private {
         seeds.push(Seed(_name, _rarity, _dna));
         uint id = seeds.push(Seed(_name, _rarity, _dna)) - 1;
+        seedToOwner[id] = msg.sender;
+        ownerSeedCount[msg.sender]++;
         NewSeed(id, _name, _rarity, _dna);
     } 
 
