@@ -33,6 +33,7 @@ contract Seed {
     }
 
     function createRandomBasicSeed(string _name) public {
+        require(ownerSeedCount[msg.sender] == 0);
         uint randDna = _generateRandomDna(_name);
         _createSeed(_name, "basic",randDna);
     }
