@@ -16,6 +16,9 @@ contract Seed {
 
     Seed[] public seeds;
 
+    mapping (uint => address) public seedToOwner;
+    mapping (address => uint) ownerSeedCount;
+
     function _createSeed(string _name, string _rarity, uint _dna) private {
         seeds.push(Seed(_name, _rarity, _dna));
         uint id = seeds.push(Seed(_name, _rarity, _dna)) - 1;
